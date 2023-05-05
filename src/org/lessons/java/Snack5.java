@@ -15,15 +15,16 @@ public class Snack5 {
 		int sum = 0;
 		int sumPari = 0;
 		int sumDispari = 0;
+		int count = 0;
 		double avg = 0;
 		double avgDispari = 0;
-		int min = 100;
-		int max = 0;
+		int min = 100; //int min = Integer.MAX_VALUE
+		int max = 0; //int max = Integer.MIN_VALUE
 		
 		for (int i = 0; i < num; i++) {
 			Random rnd = new Random();
 			
-			int rndNum = rnd.nextInt(0, 100);
+			int rndNum = rnd.nextInt(101);
 			System.out.println(rndNum);
 			
 			sum += rndNum;
@@ -32,6 +33,7 @@ public class Snack5 {
 				sumPari += rndNum;
 			} else {
 				sumDispari += rndNum;
+				count++;
 			}
 			
 			if(rndNum < min) {
@@ -44,7 +46,7 @@ public class Snack5 {
 		}
 		
 		avg = (double) (sum / num);
-		avgDispari = (double) (sumDispari / num);
+		avgDispari = (double) (sumDispari / count);
 		
 		System.out.println("Somma totale: " + sum);
 		System.out.println("Somma numeri pari: " + sumPari);
